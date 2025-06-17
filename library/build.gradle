@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
+    namespace "jp.co.cyberagent.android.gpuimage"
 
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION as int
@@ -14,6 +15,13 @@ android {
             cmake { cppFlags "" }
         }
     }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
     externalNativeBuild {
         cmake { path "src/main/cpp/CMakeLists.txt" }
     }
